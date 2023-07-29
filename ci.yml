@@ -1,0 +1,10 @@
+prepare:
+  steps:
+    - name: Install Dependencies
+      command: npm install
+test:
+  steps: []
+run:
+  steps:
+    - name: Start Dev Server
+      command: npm start

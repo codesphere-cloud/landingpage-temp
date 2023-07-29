@@ -1,0 +1,66 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+:root {
+    --image-width: ;
+    --image-height: ;
+    --percentage-width: ;
+    --percentage-height: ;
+    --animation-color: #814BF6;
+  }
+
+@layer utilities {
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      .no-scrollbar::-webkit-scrollbar {
+          display: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .no-scrollbar {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+      }
+  }
+
+.callout { 
+    position: relative; 
+    border-radius: 9px;
+  }
+
+.callout::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    margin: -2px;
+    border-radius: inherit;
+  }
+  
+  @property --r2 {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+  }
+  
+  @property --x {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+
+  @property --y {
+    syntax: '<length>';
+    inherits: false;
+    initial-value: 0px;
+  }
+  
+  .callout::after {
+    background: conic-gradient(from calc(var(--r2) - 80deg) at var(--x) var(--y), #22222200 0%, var(--animation-color) 20%, #22222200 35%);
+    animation: -0.64s rotating2 10s linear infinite, -0.64s x 10s linear infinite;
+  }
+  
